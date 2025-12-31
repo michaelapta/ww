@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Gunawan - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-link-active {
+            color: #2563eb !important;
+        }
+
+        /* Animasi sederhana untuk badge */
+        @keyframes custom-bounce {
+            0%, 100% { transform: translateY(-5%); }
+            50% { transform: translateY(0); }
+        }
+        .animate-custom-bounce {
+            animation: custom-bounce 3s infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-slate-50 min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold text-slate-900 tracking-tight">
+                &ns Gunawan<span class="text-blue-600"> Done</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8" id="desktop-menu">
+                <a href="#home" class="nav-link text-sm font-medium transition-colors hover:text-blue-600 text-blue-600" data-section="home">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium transition-colors hover:text-blue-600 text-slate-600" data-section="about">About</a>
+                <a href="#skills" class="nav-link text-sm font-medium transition-colors hover:text-blue-600 text-slate-600" data-section="skills">Skills</a>
+                <a href="#portfolio" class="nav-link text-sm font-medium transition-colors hover:text-blue-600 text-slate-600" data-section="portfolio">Portfolio</a>
+                <a href="#contact" class="nav-link text-sm font-medium transition-colors hover:text-blue-600 text-slate-600" data-section="contact">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-slate-900 focus:outline-none">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t md:hidden">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600">Home</a>
+                <a href="#about" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600">About</a>
+                <a href="#skills" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600">Skills</a>
+                <a href="#portfolio" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600">Portfolio</a>
+                <a href="#contact" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full">
+                        Mahasiswa Komunikasi
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+                        Hi, Saya <br/>
+                        <span class="text-blue-600">Daniel Gunawan</span><br/>
+                        Adi Prasetyo
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0 text-justify">
+                        Mahasiswa <strong>Ilmu Komunikasi</strong> di <strong>Universitas Mercu Buana</strong> dengan fokus studi <strong>Digital Komunikasi</strong>. Menggabungkan analisis data, berpikir kritis, dan wawasan global.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg flex items-center justify-center gap-2">
+                            Hubungi Saya <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#portfolio" class="px-8 py-3 bg-white text-slate-700 border border-slate-300 font-semibold rounded-lg hover:bg-slate-50 transition flex items-center justify-center gap-2">
+                            Lihat Proyek
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Foto Profil Utama -->
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-blue-200 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+                        <div class="relative w-full h-full rounded-full border-4 border-white shadow-2xl overflow-hidden bg-slate-200">
+                            <img 
+                                src="DANimg.png" 
+                                alt="Daniel Gunawan Photo" 
+                                class="w-full h-full object-cover"
+                                onerror="this.src='https://placehold.co/400x400/e2e8f0/1e40af?text=Daniel+Photo'"
+                            />
+                        </div>
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 animate-custom-bounce">
+                            <div class="p-2 bg-blue-100 rounded-full text-blue-600">
+                                <i data-lucide="book-open" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Mahasiswa di</p>
+                                <p class="font-bold text-slate-900">Mercu Buana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Latar Belakang</h2>
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed text-justify">
+                        Saat ini saya adalah mahasiswa aktif jurusan <strong>Ilmu Komunikasi</strong> di <strong>Universitas Mercu Buana</strong>. Ketertarikan saya pada dunia komunikasi modern mendorong saya untuk mengambil spesialisasi di bidang <strong>Digital Komunikasi</strong>, di mana teknologi dan interaksi manusia bertemu.
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed text-justify">
+                        Saya bukan sekadar mahasiswa yang duduk di kelas; saya aktif mengeksplorasi bagaimana data dapat menceritakan kisah (storytelling with data). Dengan memadukan kemampuan <strong>berpikir kritis</strong> akademis dan kemahiran <strong>Bahasa Inggris</strong>, saya siap menghadapi tantangan komunikasi di era global.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 text-center">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-blue-600 mb-2">Universitas Mercu Buana</h3>
+                            <p class="text-slate-600 text-sm">Kampus</p>
+                        </div>
+                        <div class="p-4 border-l-0 md:border-l border-r-0 md:border-r border-slate-200">
+                            <h3 class="text-lg font-bold text-blue-600 mb-2">Ilmu Komunikasi</h3>
+                            <p class="text-slate-600 text-sm">Jurusan Utama</p>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-blue-600 mb-2">Digital Komunikasi</h3>
+                            <p class="text-slate-600 text-sm">Fokus Studi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Keahlian & Kompetensi</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">
+                    Kombinasi wawasan akademis dan kemampuan praktis yang terus saya asah selama perkuliahan.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border-t-4 border-blue-600">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i data-lucide="globe" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 text-center">Bahasa & Komunikasi</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>English (Professional Proficiency)</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Bahasa Indonesia (Native)</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Public Speaking</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Academic Writing</li>
+                    </ul>
+                </div>
+                <!-- Skill 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border-t-4 border-blue-600">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i data-lucide="bar-chart-2" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 text-center">Analisis Digital</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Google Analytics 4</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Data Visualization</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>SEO & SEM Strategy</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Social Media Analytics</li>
+                    </ul>
+                </div>
+                <!-- Skill 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border-t-4 border-blue-600">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i data-lucide="brain" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 text-center">Soft Skills</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Critical Thinking</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Problem Solving</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Strategic Planning</li>
+                        <li class="flex items-center text-slate-600"><div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>Team Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Proyek Akademik & Portofolio</h2>
+                    <p class="text-slate-600">Karya dan tugas terpilih yang menunjukkan penerapan teori komunikasi.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://placehold.co/600x400/e11d48/ffffff?text=SEOCIALTALK+2025" alt="SEOCIALTALK 2025" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" />
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-blue-800">Event Organizer</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">Ketua Panitia SEOCIALTALK 2025</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3 text-justify">Memimpin perencanaan dan eksekusi acara seminar nasional SEOCIALTALK 2025. Mengoordinasikan seluruh divisi kepanitiaan.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#Leadership</span>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#Event</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold text-sm flex items-center hover:underline">Lihat Detail <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=Research+Project" alt="Research" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" />
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-blue-800">Academic Research</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">Analisis Tren Pasar E-Commerce</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3 text-justify">Penelitian mendalam mengenai perilaku konsumen digital pasca-pandemi sebagai bagian dari studi kasus Digital Komunikasi.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#Data</span>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#Research</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold text-sm flex items-center hover:underline">Lihat Detail <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Campaign+Strategy" alt="Campaign" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" />
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-blue-800">Social Media Project</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">Strategi Kampanye Digital</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3 text-justify">Merancang strategi kampanye digital komprehensif untuk brand fiktif, fokus pada SEO, analisis audiens, dan optimasi konten.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#SEO</span>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#Strategy</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold text-sm flex items-center hover:underline">Lihat Detail <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+                <!-- Info Kontak -->
+                <div class="bg-slate-900 text-white p-10 md:w-2/5 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Get in Touch</h3>
+                        <p class="text-slate-400 mb-8 text-sm">Mari terhubung untuk memperluas jaringan akademik dan profesional.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Email</p>
+                                    <p class="font-medium break-all">daniealdaniel680@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">WhatsApp / Telpon</p>
+                                    <p class="font-medium">087871344867</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Instagram</p>
+                                    <p class="font-medium">@daniel.pertamax</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Kontak -->
+                <div class="p-10 md:w-3/5">
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+                            <input type="text" id="name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Nama Anda" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                            <input type="email" id="email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="email@contoh.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Pesan / Keperluan</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Ajak kolaborasi atau diskusi..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-xl font-bold mb-2">Daniel Gunawan Adi Prasetyo</h2>
+            <p class="text-slate-400 text-sm mb-6">Mahasiswa Ilmu Komunikasi | Digital Communication Enthusiast</p>
+            <div class="text-slate-600 text-xs">
+                &copy; <span id="year"></span> All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inisialisasi Lucide Icons
+        lucide.createIcons();
+
+        // Variabel DOM
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        const sections = document.querySelectorAll('section, header');
+
+        // Update Tahun di Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Toggle Mobile Menu
+        menuToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Re-render icon
+        });
+
+        // 2. Tutup Menu Mobile saat link diklik
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // 3. Scroll Effect untuk Navbar & Active Section
+        window.addEventListener('scroll', () => {
+            // Background Navbar
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-lg', 'py-3');
+                navbar.classList.remove('bg-transparent', 'py-5');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-lg', 'py-3');
+                navbar.classList.add('bg-transparent', 'py-5');
+            }
+
+            // Highlighting Navigasi Aktif
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove('text-blue-600');
+                link.classList.add('text-slate-600');
+                if (link.getAttribute("data-section") === current) {
+                    link.classList.add('text-blue-600');
+                    link.classList.remove('text-slate-600');
+                }
+            });
+        });
+
+        // 4. Form Submission (Simulasi)
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Terima kasih ${name}, pesan Anda telah dikirim (simulasi)!`);
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
